@@ -1,0 +1,14 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Song {
+  id: ID!
+  name: String!
+  description: String!
+  dateAdded: String!
+}
+
+type Query {
+  song: Song!
+}
