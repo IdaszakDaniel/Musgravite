@@ -12,3 +12,7 @@ type Song {
 type Query {
   song: Song!
 }
+
+type Mutation {
+  createSong(name: String!, description: String!, dateAdded: String!): Song!
+}
