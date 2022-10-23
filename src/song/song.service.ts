@@ -19,6 +19,10 @@ export class SongService {
     });
   }
 
+  async getSongs(): Promise<Song[]> {
+    return this.songRepository.find();
+  }
+
   async createSong(createSongInput: CreateSongInput): Promise<Song> {
     const { name, description, dateAdded } = createSongInput;
 

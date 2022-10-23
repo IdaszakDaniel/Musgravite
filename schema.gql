@@ -11,6 +11,7 @@ type Song {
 
 type Query {
   song(id: String!): Song!
+  songs: [Song!]!
 }
 
 type Mutation {
