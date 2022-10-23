@@ -12,6 +12,11 @@ export class SongResolver {
     return this.songService.getSong(id);
   }
 
+  @Query((returns) => [SongType])
+  songs() {
+    return this.songService.getSongs();
+  }
+
   @Mutation((returns) => SongType)
   createSong(@Args('createSongInput') createSongInput: CreateSongInput) {
     return this.songService.createSong(createSongInput);
