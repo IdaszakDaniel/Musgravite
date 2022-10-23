@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Song } from './song.entity';
 import { v4 as uuid } from 'uuid';
+import { CreateSongInput } from './song.input';
 
 @Injectable()
 export class SongService {
@@ -18,7 +19,9 @@ export class SongService {
     });
   }
 
-  async createSong(name, description, dateAdded): Promise<Song> {
+  async createSong(createSongInput: CreateSongInput): Promise<Song> {
+    const { name, description, dateAdded } = createSongInput;
+
     const song = this.songRepository.create({
       id: uuid(),
       name,

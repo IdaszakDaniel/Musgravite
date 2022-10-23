@@ -1,6 +1,7 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { SongType } from './song.type';
 import { SongService } from './song.service';
+import { CreateSongInput } from './song.input';
 
 @Resolver((of) => SongType)
 export class SongResolver {
@@ -12,11 +13,7 @@ export class SongResolver {
   }
 
   @Mutation((returns) => SongType)
-  createSong(
-    @Args('name') name: string,
-    @Args('description') description: string,
-    @Args('dateAdded') dateAdded: string,
-  ) {
-    return this.songService.createSong(name, description, dateAdded);
+  createSong(@Args('createSongInput') createSongInput: CreateSongInput) {
+    return this.songService.createSong(createSongInput);
   }
 }

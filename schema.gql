@@ -14,5 +14,11 @@ type Query {
 }
 
 type Mutation {
-  createSong(name: String!, description: String!, dateAdded: String!): Song!
+  createSong(createSongInput: CreateSongInput!): Song!
+}
+
+input CreateSongInput {
+  name: String!
+  description: String!
+  dateAdded: String!
 }
