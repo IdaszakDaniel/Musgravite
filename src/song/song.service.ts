@@ -10,9 +10,17 @@ export class SongService {
     @InjectRepository(Song) private songRepository: Repository<Song>,
   ) {}
 
-  createSong(name, description, dateAdded): Promise<Song> {
+  async getSong(id: string): Promise<Song> {
+    return this.songRepository.findOne({
+      where: {
+        id,
+      },
+    });
+  }
+
+  async createSong(name, description, dateAdded): Promise<Song> {
     const song = this.songRepository.create({
-      id: uuid,
+      id: uuid(),
       name,
       description,
       dateAdded,

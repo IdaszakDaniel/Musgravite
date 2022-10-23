@@ -7,13 +7,8 @@ export class SongResolver {
   constructor(private songService: SongService) {}
 
   @Query((returns) => SongType)
-  song() {
-    return {
-      id: '1edcxz',
-      name: 'My project 1',
-      description: 'Guitar solo in key of C',
-      dateAdded: new Date().toISOString(),
-    };
+  song(@Args('id') id: string) {
+    return this.songService.getSong(id);
   }
 
   @Mutation((returns) => SongType)
